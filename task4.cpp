@@ -25,4 +25,6 @@ int main() {
     reverse(arr, 4);
 
     print_array(arr);
+
+    return 0;
 }

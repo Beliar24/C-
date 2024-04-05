@@ -3,4 +3,5 @@ project(hillle)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(hillle task4.cpp)
+add_executable(hillle task5.cpp
+)
