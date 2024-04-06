@@ -11,16 +11,21 @@ int calculate(int a, int b, char s) {
         case '*':
             return a * b;
         case '/':
-            return a / b;
+            if (a != 0) {
+                return a / b;
+            } else {
+                cout << "a = 0, you can't divide";
+                return 0;
+            }
         default:
             cout << "Wrong operator";
     }
-    return 1;
+    return 0;
 }
 
 int main() {
 
-    cout << calculate(10, 5, '+');
+    cout << calculate(0, 5, '/');
 
     return 0;
 }

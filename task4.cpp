@@ -12,19 +12,18 @@ void reverse(int arr[], int size) {
     }
 }
 
-void print_array(int *arr) {
-    while (*arr) {
-        cout << *arr++ << " ";
+void print_array(int arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+        cout << arr[i] << " ";
     }
 }
 
 int main() {
-
     int arr[10] {1, 2, 3, 4, 5};
 
     reverse(arr, 4);
 
-    print_array(arr);
+    print_array(arr, 5);
 
     return 0;
 }
