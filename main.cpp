@@ -2,33 +2,81 @@
 
 using namespace std;
 
-size_t returnSize(int a) {
-    return sizeof(a);
-}
+class Calc {
+private:
+    double number = 0.0;
 
-size_t returnSize(float a) {
-    return sizeof(a);
-}
+public:
+     double getNumber() const {
+        return number;
+    }
 
-size_t returnSize(bool a) {
-    return sizeof(a);
-}
+    void clearNumber() {
+         number = 0.0;
+     }
 
-size_t returnSize(const int *a) {
-    return sizeof(a);
-}
 
+    void calc(int a, int b, char s) {
+        switch (s) {
+            case '-':
+                number =  a - b;
+                break;
+            case '+':
+                number =  a + b;
+                break;
+            case '*':
+                number =  a * b;
+                break;
+            case '/':
+                if (a != 0) {
+                    number = a / b;
+                } else {
+                    cout << "a = 0, you can't divide";
+                }
+                break;
+            default:
+                cout << "Wrong operator";
+        }
+    }
+
+    void calculate(const double rightValue, const char operation) {
+        switch (operation) {
+            case '-':
+                number -= rightValue;
+                break;
+            case '+':
+                number += rightValue;
+                break;
+            case '*':
+                number *= rightValue;
+                break;
+            case '/':
+                if (rightValue != 0) {
+                    number /= rightValue;
+                } else {
+                    cout << "a = 0, you can't divide";
+                }
+                break;
+            default:
+                cout << "Wrong operator";
+        }
+    }
+};
 
 int main() {
-    int n = 12;
-    float f = 1.4;
-    bool almost = true;
-    int *a;
+    Calc calculator;
 
-    cout << returnSize(n) << endl;
-    cout << returnSize(f) << endl;
-    cout << returnSize(almost) << endl;
-    cout << returnSize(a) << endl;
+    calculator.calc(5, 5, '+');
+
+    cout << calculator.getNumber() << endl;
+
+    calculator.calculate(4.6, '*');
+
+    cout << calculator.getNumber() << endl;
+
+    calculator.clearNumber();
+
+    cout << calculator.getNumber();
     return 0;
 }
 
