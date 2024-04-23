@@ -19,7 +19,7 @@ public:
         } else if (playerMove == 2 && botMove == 1) {
             cout << "The first player win -> paper cover rock";
         } else if (playerMove == 1 && botMove == 1 || playerMove == 2 && botMove == 2 || playerMove == 3 && botMove == 3) {
-            cout << draw;
+            cout << draw << endl;
         } else if (playerMove == 2 && botMove == 3) {
             cout << "The first player lose -> paper was cut by scissor";
         } else if (playerMove == 3 && botMove == 1) {

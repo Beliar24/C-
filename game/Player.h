@@ -8,7 +8,7 @@
 
 class Player {
 public:
-    virtual int choseYourAction();
+    [[nodiscard]] virtual int choseYourAction() const = 0;
 };
 
 

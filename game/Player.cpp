@@ -4,7 +4,6 @@ using namespace std;
 
 class Player {
 public:
-    virtual int choseYourAction() {
-        return 0;
-    }
+    [[nodiscard]] virtual int choseYourAction() const  = 0;
+
 };

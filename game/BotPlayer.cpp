@@ -6,7 +6,7 @@ using namespace std;
 
 class BotPlayer: public Player {
 
-    int choseYourAction() override {
+    [[nodiscard]] int choseYourAction() const override {
         std::random_device rd;
         std::mt19937 gen(rd());
         std::uniform_int_distribution<> dis(1, 3);
