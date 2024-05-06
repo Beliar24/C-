@@ -4,5 +4,5 @@ project(hillle)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(hillle
-        homework/Calc.cpp
+        homework/Vector.cpp
 )
