@@ -3,10 +3,6 @@ project(hillle)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(hillle main.cpp
-        game/Player.cpp
-        game/Player.h
-        game/HumanPlayer.cpp
-        game/BotPlayer.cpp
-        game/Game.cpp
+add_executable(hillle
+        homework/Calc.cpp
 )
