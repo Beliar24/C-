@@ -14,7 +14,6 @@ class MyList {
 public:
     MyList() : head(nullptr), tail(nullptr), size(0) {}
 
-    // Copy constructor
     MyList(const MyList& other) : head(nullptr), tail(nullptr), size(0) {
         Node<T>* current = other.head;
         while (current) {
@@ -23,7 +22,6 @@ public:
         }
     }
 
-    // Assignment operator
     MyList& operator=(const MyList& other) {
         if (this == &other) {
             return *this;
@@ -37,7 +35,6 @@ public:
         return *this;
     }
 
-    // Destructor
     ~MyList() {
         clear();
     }
