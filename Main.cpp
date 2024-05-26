@@ -1,18 +1,20 @@
-#include "homework/MyList.cpp"
+#include <vector>
+#include <iostream>
+#include "homework/VectorUtils.h"
+
+using namespace std;
 
 int main() {
-    MyList<int> list;
-    list.push_back(1);
-    list.push_back(2);
-    list.push_front(0);
-    list.push_front(-1);
+    vector<int> vec1 = {1, 2, 3, 4, 5};
+    vector<int> vec2 = {1, 2, 3, 4, 5, 3};
 
-    std::cout << "List size: " << list.get_size() << std::endl;
+    cout << "vec1 has duplicates: " << (hasDuplicates(vec1) ? "Yes" : "No") << endl;
+    cout << "vec2 has duplicates: " << (hasDuplicates(vec2) ? "Yes" : "No") << endl;
 
-    list.pop_back();
-    list.pop_front();
-
-    std::cout << "List size after pop operations: " << list.get_size() << std::endl;
+    int numberToFind = 3;
+    cout << "vec1 contains " << numberToFind << ": " << (containsNumber(vec1, numberToFind) ? "Yes" : "No") << endl;
+    cout << "vec2 contains " << numberToFind << ": " << (containsNumber(vec2, numberToFind) ? "Yes" : "No") << endl;
 
     return 0;
+
 }
