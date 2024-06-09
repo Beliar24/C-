@@ -3,9 +3,10 @@
 
 using namespace std;
 
+template <typename T>
 class Vector {
 private:
-    int* data = nullptr;
+    T* data = nullptr;
     size_t size = 0;
     size_t capacity = 0;
 
@@ -15,15 +16,15 @@ public:
     explicit Vector(size_t capacity) {
         this->capacity = capacity;
         this->size = 0;
-        this->data = new int[capacity];
-        memset(data, 0, sizeof(int) * capacity);
+        this->data = new T[capacity];
+        memset(data, 0, sizeof(T) * capacity);
     }
 
     Vector(const Vector& other) {
         this->capacity = other.capacity;
         this->size = other.size;
-        this->data = new int[other.capacity];
-        memcpy(this->data, other.data, sizeof(int) * other.size);
+        this->data = new T[other.capacity];
+        memcpy(this->data, other.data, sizeof(T) * other.size);
     }
 
     ~Vector() {
@@ -35,17 +36,17 @@ public:
             delete[] data;
             this->capacity = other.capacity;
             this->size = other.size;
-            this->data = new int[other.capacity];
-            memcpy(this->data, other.data, sizeof(int) * other.size);
+            this->data = new T[other.capacity];
+            memcpy(this->data, other.data, sizeof(T) * other.size);
         }
         return *this;
     }
 
-    int& operator[](size_t index) {
+    T& operator[](size_t index) {
         return data[index];
     }
 
-    void push_back(const int& item) {
+    void push_back(const T& item) {
         if (size < capacity) {
             data[size++] = item;
         } else {
@@ -59,10 +60,10 @@ public:
 };
 
 int main() {
-    Vector v1;
+    Vector<int> v1;
     cout << "v1 size: " << v1.getSize() << endl;
 
-    Vector v2(40);
+    Vector<double> v2(40);
     cout << "v2 size: " << v2.getSize() << endl;
     for (int i = 0; i < 50; ++i) {
         v2.push_back(i);
