@@ -4,7 +4,6 @@ project(hillle)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(hillle
-        homework/VectorUtils.cpp
-        homework/VectorUtils.h
-        Main.cpp
+        homework/MyList.cpp
+        homework/Vector.cpp
 )
