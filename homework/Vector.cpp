@@ -20,6 +20,17 @@ public:
         memset(data, 0, sizeof(T) * capacity);
     }
 
+    [[maybe_unused]] Vector(size_t capacity, nothrow_t) {
+        this->capacity = capacity;
+        this->size = 0;
+        this->data = new (nothrow) T[capacity];
+        if (this->data) {
+            memset(data, 0, sizeof(T) * capacity);
+        } else {
+            this->capacity = 0;
+        }
+    }
+
     Vector(const Vector& other) {
         this->capacity = other.capacity;
         this->size = other.size;
@@ -57,9 +68,30 @@ public:
     [[nodiscard]] size_t getSize() const {
         return size;
     }
+
+    void resize(size_t newSize, nothrow_t) {
+        if (newSize <= capacity) {
+            size = newSize;
+            return;
+        }
+
+        T* newData = new (nothrow) T[newSize];
+        if (!newData) {
+            cout << "Failed to allocate memory." << endl;
+            return;
+        }
+
+        memcpy(newData, data, sizeof(T) * size);
+        delete[] data;
+
+        data = newData;
+        capacity = newSize;
+        size = newSize;
+    }
 };
 
 int main() {
+
     Vector<int> v1;
     cout << "v1 size: " << v1.getSize() << endl;
 
@@ -69,10 +101,10 @@ int main() {
         v2.push_back(i);
     }
 
-    Vector v3(v2);
+    Vector<double> v3(v2);
     cout << "v3 size: " << v3.getSize() << endl;
 
-    Vector v4 = v2;
+    Vector<double> v4 = v2;
     cout << "v4 size: " << v4.getSize() << endl;
 
     for (size_t i = 0; i < v4.getSize(); ++i) {
@@ -80,5 +112,11 @@ int main() {
     }
     cout << endl;
 
+    cout << "Resizing v4 to 60 elements." << endl;
+    v4.resize(60, std::nothrow);
+    cout << "v4 size after resize: " << v4.getSize() << endl;
+
+
     return 0;
 }
+
