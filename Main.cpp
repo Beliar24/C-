@@ -1,20 +1,23 @@
-#include <vector>
-#include <iostream>
-#include "homework/VectorUtils.h"
-
-using namespace std;
+#include "Vector.cpp"
 
 int main() {
-    vector<int> vec1 = {1, 2, 3, 4, 5};
-    vector<int> vec2 = {1, 2, 3, 4, 5, 3};
+    Vector<int> v1;
+    cout << "v1 size: " << v1.getSize() << endl;
 
-    cout << "vec1 has duplicates: " << (hasDuplicates(vec1) ? "Yes" : "No") << endl;
-    cout << "vec2 has duplicates: " << (hasDuplicates(vec2) ? "Yes" : "No") << endl;
+    Vector<double> v2(40);
+    cout << "v2 size: " << v2.getSize() << endl;
+    for (int i = 0; i < 50; ++i) {
+        v2.push_back(i);
+    }
 
-    int numberToFind = 3;
-    cout << "vec1 contains " << numberToFind << ": " << (containsNumber(vec1, numberToFind) ? "Yes" : "No") << endl;
-    cout << "vec2 contains " << numberToFind << ": " << (containsNumber(vec2, numberToFind) ? "Yes" : "No") << endl;
+    Vector v3(v2);
+    cout << "v3 size: " << v3.getSize() << endl;
 
-    return 0;
+    Vector v4 = v2;
+    cout << "v4 size: " << v4.getSize() << endl;
 
+    for (size_t i = 0; i < v4.getSize(); ++i) {
+        cout << v4[i] << " ";
+    }
+    cout << endl;
 }
