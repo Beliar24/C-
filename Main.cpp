@@ -20,6 +20,4 @@ int main() {
         cout << v4[i] << " ";
     }
     cout << endl;
-
-    return 0;
 }
