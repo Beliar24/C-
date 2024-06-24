@@ -1,1 +1,6 @@
 cmake-build-debug
+build/
+*.o
+*.obj
+*.exe
+*.out

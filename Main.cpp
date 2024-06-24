@@ -1,18 +1,25 @@
-#include "homework/MyList.cpp"
+#include "Vector.cpp"
 
 int main() {
-    MyList<int> list;
-    list.push_back(1);
-    list.push_back(2);
-    list.push_front(0);
-    list.push_front(-1);
+    Vector<int> v1;
+    cout << "v1 size: " << v1.getSize() << endl;
 
-    std::cout << "List size: " << list.get_size() << std::endl;
+    Vector<double> v2(40);
+    cout << "v2 size: " << v2.getSize() << endl;
+    for (int i = 0; i < 50; ++i) {
+        v2.push_back(i);
+    }
 
-    list.pop_back();
-    list.pop_front();
+    Vector v3(v2);
+    cout << "v3 size: " << v3.getSize() << endl;
 
-    std::cout << "List size after pop operations: " << list.get_size() << std::endl;
+    Vector v4 = v2;
+    cout << "v4 size: " << v4.getSize() << endl;
+
+    for (size_t i = 0; i < v4.getSize(); ++i) {
+        cout << v4[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }
