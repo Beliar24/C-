@@ -1,4 +1,4 @@
-#include "Vector.cpp"
+#include "Vector.h"
 
 int main() {
     Vector<int> v1;
